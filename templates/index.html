@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DD Cloning Dashboard</title>
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <h1>Disk Clone Manager</h1>
+    <form id="startForm">
+        <label>Source Host:</label><input name="source" required><br>
+        <label>Destination Path:</label><input name="destination" required><br>
+        <button type="submit">Start Clone</button>
+    </form>
+    <div id="progress"></div>
+    <h2>History</h2>
+    <ul>
+        {% for run in history %}
+        <li>{{ run.source }} → {{ run.destination }} | {{ run.duration }}s | {{ run.status }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
 
